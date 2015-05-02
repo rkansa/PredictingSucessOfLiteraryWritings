@@ -30,11 +30,15 @@ if __name__ == '__main__':
 
 	# Main program takes 5 command line arguments -
 	# <ratings-filename> <user-id> <N-number of nearest neighbours> <k-Top K results to show>
-	if len(sys.argv) != 2:
-		print("Invalid Arguments!")
-		exit(1)
+	#if len(sys.argv) != 2:
+	#	print("Invalid Arguments!")
+	#	exit(1)
+	folder_name = sys.argv[1]
 
-	file_name = sys.argv[1]
+	allfiles = glob.glob(folder_name+"/*.out")
 
-	read_process_input(file_name)
+	print(allfiles)
+	# file_name = sys.argv[1]
+
+	#read_process_input(file_name)
 
