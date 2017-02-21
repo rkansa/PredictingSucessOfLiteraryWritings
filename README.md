@@ -1,1 +1,19 @@
-# NovelPredictSuccessNLP
+Predicting Success of Literary writings  
+This project intends to predict the success of new literary work by examining the quantitative connection between writing style and success of a manuscript. Research on certain aspects of this project has been attempted at few universities[1]. We wish to build on the existing research and determine several new features that can help determine the success of a literature. 
+We believe that our work would help publishers, literary agents, authors and script writers to get a quantitative measure of success of a literary work. It should also help in formulating an interesting relation between connotation and literary success. Data Collection and Annotation: 
+Our primary source of data is Project Gutenberg. We intend to categorise the novels based on genres and train a different model for each category of novels. Project Gutenberg has over 40,000 books available for free download in electronic format and provides a catalog containing brief descriptions (title, author, genre, language, download count, etc.) of these books.  
+Annotation of training data to label each literary work as ‘success’ or ‘lousy’ is an interesting problem. We hypothesize to take multiple parameters such as number of downloads, copies sold at Amazon, awards, etc. to give a quantitative measure of success. Thresholds would be empirically selected to identify the work as ‘success’ or ‘lousy’. 
+Approach: 
+1.	Perform a comparative study of various NLP techniques viz. PCFG, Language models, that would give us the best predictions for each genre. This requires substantial work in building individual modules (if required ) for various algorithms and test them against each other. During the training phase, we measure different aspects of writing styles which correspond to different set of features for each genre. For example, we could consider just n­grams for ‘Adventure’, while consider both n­grams with PCFG rules for ‘Poetry’ work. This would allow us to create a software that would use the best technique after genre detection. 
+2.	During the testing phase we would have an unlabeled corpora of novels. We would first perform genre detection[2][3][4] to categorize each literary work into its corresponding genre. We would then classify each work as ‘success’ or ‘lousy’ using an NLP technique which gives the best prediction for that genre. 
+3.	Another important task is to extract relevant features. We propose to approach this problem in three ways :  
+a.	Take the first 1000 lines [1] with an assumption that a novel has the some of the best parts in the first 1000 lines [1] (Here 1000 is an arbitrarily number chosen threshold). 
+b.	Another approach is to randomly choose 1000 lines from the entire book which would increase the possibilities of choosing a good feature.  
+c.	Yet another approach would be to summarize the text[5] and provide only the crux of the novel thereby ensuring a higher percentage of good features to be present in our data. 
+Evaluation: 
+We extract unlabeled corpora of novels for those authors whose work has not been used to train our classifier from Project Gutenberg. We classify this corpora and calculate precision, recall and Fscore of our classifier across each genre and across the whole data set. 
+A baseline accuracy of around 65% has been achieved in previous research works, and we propose to improve on it. 
+We intend to use 10­fold cross validation during our training phase which ensures that our model is optimised for the training material provided. This methodology would help corroborate the effectiveness of our NLP models used and thus giving us insights into a particular model’s propensity to provide a better evaluation. 
+Conclusion: 
+We are hopeful that this project would be effective in discriminating successful literature and will achieve reasonable accuracy of more than 80%. 
+ 
